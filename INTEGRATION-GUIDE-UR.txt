@@ -1,0 +1,55 @@
+DOCTOR MOBILE SHOP - INTEGRATION GUIDE (Roman Urdu)
+
+Aapki website ke frontend files aapas mein linked hain:
+- index.html: home page, search bar, hero banner, categories, featured products
+- style.css: tamam colors, layout aur responsive design
+- script.js: product list, search, Add to Cart, cart count, quantity, totals aur WhatsApp order message
+- mobiles.html / watches.html / books.html / sports.html: har category ka alag page
+- all-products.html: View All Products / Shop Now ka page
+- checkout.html: cart, customer details, payment preference aur WhatsApp order
+- login.html: sirf demo screen; secure login abhi active nahin
+
+LOCAL COMPUTER PAR CHALANE KA TAREEQA
+1. ZIP file par right-click > Extract All.
+2. VS Code > File > Open Folder > extracted doctor_mobile_shop_website folder select karein.
+3. index.html open karein.
+4. Agar Live Server extension installed hai: index.html par right-click > Open with Live Server.
+5. Internet on rakhein; sample product photos internet se load hoti hain.
+
+PRODUCTS AUR PHOTOS CHANGE KARNA
+1. VS Code mein script.js kholein.
+2. PRODUCTS naam ki list dhoondein.
+3. Har product ka name, category, price, brand aur image URL apni asal information se replace karein.
+4. Image URL direct image ka hona chahiye. Apni photos use karne ke liye project mein images folder bana kar file paths script.js mein dein.
+5. Ctrl+S se save karein, browser refresh karein.
+IMPORTANT: Abhi product names/prices/photos sample hain; launch se pehle apne asli stock ke mutabiq update karein.
+
+WHATSAPP ORDER
+- WhatsApp business/shop number script.js mein WHATSAPP_NUMBER = "923290560094" hai.
+- Is ka local format 0329 0560094 hai.
+- Checkout par customer name, phone aur address bhar kar payment preference select karein aur Order on WhatsApp dabayein.
+- WhatsApp message khulega. Customer ko WhatsApp mein Send khud press karna hota hai.
+- Is se order WhatsApp par jata hai; website ke kisi central database/admin panel mein automatically save nahin hota.
+
+PAYMENT INTEGRATION KI HAQEEQAT
+Is version mein Cash on Delivery, bank transfer aur Easypaisa/JazzCash ki payment PREFERENCE order message mein ja sakti hai. Website khud payment collect/verify nahin karti.
+Real online card/wallet payment ke liye Pakistan mein available payment provider se merchant account, approval, API keys aur secure backend/server-side integration chahiye. API secret keys kabhi HTML/JavaScript mein na daalein.
+Bank transfer ya Easypaisa/JazzCash ke liye shop ke asli account details aur verification process owner ko khud dena hoga; filhal customer WhatsApp par details mangta hai.
+
+LOGIN / REGISTER
+login.html sirf UI demo hai. Is mein password enter karne se secure account create nahin hota. Real accounts ke liye Firebase Authentication, Supabase Auth ya ecommerce platform aur secure configuration chahiye. Demo form ko real customer passwords ke liye use na karein.
+
+ADMIN / ORDERS / INVENTORY
+Abhi products script.js mein manually edit hote hain. Real admin dashboard, database mein orders, stock updates aur customer accounts ke liye backend/database setup zaroori hai (misal: Supabase/Firebase ya managed ecommerce platform). Ye credentials aur project setup ke baghair fully activate nahin ho sakta.
+
+PUBLIC WEBSITE BANANA
+Local file sirf aapke computer par khulti hai. Public website ke liye hosting par upload karein; custom domain optional hai. Static frontend ko GitHub Pages/Netlify jaisi hosting par publish kiya ja sakta hai, lekin real payments/authentication ke liye secure backend bhi host/configure karna hoga.
+
+LAUNCH SE PEHLE CHECKLIST
+[ ] Asal product names, brands, photos aur prices
+[ ] Shop address, delivery fee aur delivery areas
+[ ] WhatsApp number test
+[ ] Mobile aur desktop par har page test
+[ ] Payment provider merchant account/API integration (agar online payment chahiye)
+[ ] Secure login aur order database (agar customer accounts/admin panel chahiye)
+[ ] Privacy policy, terms, returns/refunds aur delivery policy
